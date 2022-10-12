@@ -1,0 +1,76 @@
+.inactive__filter{
+    height: 0;
+    padding: 0 !important;
+    border: none !important;
+}
+.filters{
+    transform: translate(0, 4.6%);
+    overflow-y: hidden;
+    position: absolute;
+    padding: 30px 20px;
+    background: #FFFFFF;
+    border: 1px solid rgba(84, 95, 125, 0.14);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    margin-bottom: 30px;
+    form{
+        width:100%;
+        .form__select{
+            margin-bottom: 20px;
+            label{
+                display: block;
+                font-family: 'Work Sans';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                color: #545F7D;
+                margin-bottom: 6px;
+            }
+            select{
+                width: 100% !important;
+            }
+            select, input{ 
+                padding: 12px 20px;
+                display: block;
+                background: #FFFFFF;
+                opacity: 0.2;
+                border: 1px solid #213F7D;
+                border-radius: 8px;
+                width: 230px;
+                font-family: 'Work Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 16px;
+                color: #545F7D;
+
+            }
+        }
+        .btn{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .btn__outline, .btn__primary{
+                border-radius: 8px;
+                padding: 11px 0;
+                flex-basis: 48%;
+                font-family: 'Work Sans';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 16px;
+            }
+            .btn__outline{
+                border: 1.75px solid #545F7D;
+                background: transparent;
+                color: #545F7D;
+            }
+            .btn__primary{
+                border: 1.75px solid #39CDCC;
+                background: #39CDCC;
+                color: #ffffff;
+            }
+        }
+    }
+}

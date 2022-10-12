@@ -1,0 +1,16 @@
+.flex{
+    display: flex;
+    align-items: stretch;
+    height:calc(100vh);
+    min-height: 450px;
+    padding-top: 75px;
+    position: relative;
+
+    .main{
+        flex-grow: 1;
+        height: 100%;
+        background-color: #E5E5E5;
+        overflow-y: auto;
+    }
+    
+}

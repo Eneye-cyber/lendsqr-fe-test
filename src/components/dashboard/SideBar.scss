@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
+.sidebar{
+    background: #FFFFFF;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+    overflow-x: hidden;
+
+    p, a{
+        font-family: 'Work Sans', sans-serif;
+    }
+    .container{
+        width: 100%;
+        max-width: 100%;
+        padding: 40px 8px 0 0;
+        .mb_4{
+            margin-bottom: 20px;
+        }
+        .side__subheader{
+            display: inline-flex;
+            width: 100%;
+            padding: 0px 30px;
+            margin: 20px auto 0px ;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .side__link{
+            display: inline-flex;
+            width: 100%;
+            height:auto;
+            padding: 12px 30px;
+            align-items: center;
+            text-decoration: none;
+            color: #213F7D;
+            .chev{
+                align-self: flex-end;
+            }
+            p{
+                margin: 0 12px;
+                font-size: 16px;
+                line-height: 18px;
+                
+            }
+            &:hover{
+                background-color: rgba(57,205,204,0.06);
+                opacity: 1;
+            }
+        }
+        .link__inactive{
+            opacity: 0.6;
+        }
+        .active{
+            background-color: rgba(57,205,204,0.06);
+            opacity: 1;
+        }
+    }
+}
+.active{
+    width: 283px;
+}
+.inactive{
+    width: 0;
+}
+@media screen and (max-width: 1100px){
+    .inactive{
+        width: 283px;
+        position: absolute;
+        left: 0;
+        z-index: 2;
+    }
+
+    .active{
+        width: 0;
+    }
+}

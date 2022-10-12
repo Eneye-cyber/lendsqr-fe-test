@@ -1,0 +1,100 @@
+.login{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    .nav-bar{
+        background-color: transparent;
+        width: 100%;
+        padding: 40px 0 0 6%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    .login__container{
+        width: 100%;
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        min-height: 450px;
+        padding: 0px 0px 0px 60px;
+        box-sizing: border-box;
+        .col_6{
+            flex: 1 1 50%;
+        }
+        .left{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 0 6%;
+            .login_img_container{
+                max-width: 100%;
+                width: 100%;
+                .img{
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+        .right{
+            background: #FFFFFF;
+            box-shadow: 0px 7px 16px 6px rgb(0 0 0 / 3%);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 6%;
+            
+        }
+    }
+}
+@media screen and (max-width: 1100px) {
+
+    .login{
+
+        .login__container{
+
+           
+            .left{
+                padding: 0 0%;
+                .login_img_container{
+                    .img{
+                        width: 85%;
+                    }
+                }
+            }
+            .right{
+                padding: 0 3%;
+                
+            }
+        }
+    }
+    
+}
+@media screen and (max-width: 760px) {
+
+    .login{
+
+        .login__container{
+            padding-left: 6%;
+            .col_6{
+                flex: 1 1 100%;
+            }
+            .left{
+                display: none;
+            }
+            .right{
+                padding: 0 0;
+                box-shadow: none;
+                align-items: flex-start;
+                background-color: transparent;
+            }
+        }
+    }
+    
+}
