@@ -10,7 +10,7 @@ import blacklist from './../../../assets/icons/blacklist.svg'
 import activate from './../../../assets/icons/activate.svg'
 import menu from './../../../assets/icons/menuDot.svg'
 import { Root, Table } from '../../../interface'
-import { determineClass, sortDate } from '../../../helpers/functionHelpers'
+import { determineClass, getData, sortDate, tableUser } from '../../../helpers/functionHelpers'
 import { cards, tableHeader } from '../../../helpers/dataHelpers'
 import { useNavigate } from "react-router-dom";
 
@@ -23,16 +23,10 @@ const Users: React.FC = () => {
   const [Length, setLength] = useState<number>(10)
   const [Start, setStart] = useState<number>(0)
   const [End, setEnd] = useState<number>(10)
-
   const [userData, setUserData] = useState<Table[]>([])
-  const navigate = useNavigate();
+  
 
-  const tableUser = () => {
-      let result = Users.slice(Start,End).map((user) => {
-            return { org: user.orgName, username: user.userName, email: user.email, phone: user.phoneNumber, date: sortDate(user.createdAt), status: 'inactive', id: user.id };
-          });
-          setUserData([...result])     
-  }
+  const navigate = useNavigate();
 
   const changeLength = (event: React.ChangeEvent<HTMLSelectElement>) => {
     let value = event.target.value
@@ -45,14 +39,8 @@ const Users: React.FC = () => {
     else
       fetchStatus(element)
   }
-  const getData = () => {
-    fetch('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users')
-      .then((res) => res.json())
-      .then((res) => {
-        fetchUsers(res)
-      })
-  }
 
+ 
  const viewUser = (element: string) => {
     let searchObject= Users.find((user) => user.id == element);
     localStorage.setItem('user', JSON.stringify(searchObject));
@@ -60,11 +48,16 @@ const Users: React.FC = () => {
  }
 
   useEffect(() => { 
-    getData() 
+    async function update() {
+      fetchUsers(await getData()) 
+    }
+    update()
   }, [])
+
   useEffect(() => {
-    tableUser()
+    setUserData([...tableUser(Users,Start,End)]) 
 }, [Users,End]);
+
   //Card Items
   const cardItems = cards.map((card, index) => 
     <Card key={index} icon={card.icon} text={card.text} number={card.number} />
@@ -102,8 +95,20 @@ const Users: React.FC = () => {
       </td>
     </tr>
   );
+  
+  const goTo = (element: number) => {
+    let end = element * Length
+    let start = end - Length
+    setStart(start)
+    setEnd(end)
+  }
+
   const pagination = Array.from({length: (Users.length/Length) }, (_, i) => i + 1).map((num) => 
-        <a key={num.toString()} href="#">{num}</a>
+        <a className={`${(End- Start)/Length == num ? 'paginate__active' : ''}`}
+        key={num.toString()} 
+        onClick={(e) => { e.preventDefault(); goTo(num) }} 
+        href="#"
+        >{num}</a>
   );
   return (
     <div className='container'>
@@ -134,14 +139,15 @@ const Users: React.FC = () => {
         </div>
 
         <div className="pagination">
-          <button className="prev"><object data={chevLeft} type=""></object></button>
+          <button className="prev"><img src={chevLeft} /></button>
             {pagination}
-        <button className="next"><object data={chevRight} type=""></object></button>
+        <button className="next" ><img src={chevRight} /></button>
 
         </div>
       </div>
     </div>
   )
 }
+
 
 export default Users

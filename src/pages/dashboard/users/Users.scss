@@ -170,12 +170,17 @@
                 color: #545f7d;
                 padding: 4px 12px;
             }
+            .paginate__active{
+                color: #39CDCC;
+                font-weight: 600;
+            }
             .prev, .next{
                 padding: 4px 8px;
                 background: rgba(33, 63, 125, 0.1);
                 border-radius: 4px;
                 outline: none;
                 border: 1px solid rgba(33, 63, 125, 0.1);
+                cursor: pointer;
             }
         }
     }
