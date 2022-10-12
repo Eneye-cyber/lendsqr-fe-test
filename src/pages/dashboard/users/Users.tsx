@@ -95,7 +95,7 @@ const Users: React.FC = () => {
       </td>
     </tr>
   );
-  
+
   const goTo = (element: number) => {
     let end = element * Length
     let start = end - Length
@@ -104,7 +104,7 @@ const Users: React.FC = () => {
   }
 
   const pagination = Array.from({length: (Users.length/Length) }, (_, i) => i + 1).map((num) => 
-        <a className={`${(End- Start)/Length == num ? 'paginate__active' : ''}`}
+        <a className={`${End/Length == num ? 'paginate__active' : ''}`}
         key={num.toString()} 
         onClick={(e) => { e.preventDefault(); goTo(num) }} 
         href="#"
