@@ -53,8 +53,33 @@
             background-color: rgba(57,205,204,0.06);
             opacity: 1;
         }
+
+        
     }
+    
+    
 }
+::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(84, 95, 125, 0.5);
+    border-radius: 10px;
+  
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(84, 95, 125, 0.9); 
+  }
 .active{
     width: 283px;
 }
